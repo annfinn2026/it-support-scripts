@@ -1,0 +1,39 @@
+version: '3.8'
+
+# Sample Home Lab Stack (Samba Shares, WireGuard VPN & Network Services)
+# Author: Hans Annfinn Johannesen
+
+services:
+  # 1. Samba File Sharing Service
+  samba:
+    image: dperson/samba
+    container_name: homelab-samba
+    restart: unless-stopped
+    ports:
+      - "139:139"
+      - "445:445"
+    environment:
+      - TZ=Europe/Copenhagen
+      - USER=haj;password123
+    volumes:
+      - /mnt/storage/shared:/shares/storage
+    command: -s "Public Share;/shares/storage;yes;no;no;haj"
+
+  # 2. WireGuard VPN Server
+  wireguard:
+    image: lscr.io/linuxserver/wireguard:latest
+    container_name: homelab-wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Copenhagen
+      - SERVERURL=auto
+      - SERVERPORT=51820
+      - PEERS=mobile,laptop
+      - PEERDNS=auto
+    ports:
+      - "51820:51820/udp"
+    restart: unless-stopped
