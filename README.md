@@ -1,12 +1,13 @@
 # 🛠 IT Support & Automation Scripts
 
-En samling af praktiske **PowerShell**, **Bash** og **Docker Compose** scripts udviklet til automatiseret fejlsøgning, netværksdiagnostik, printerhåndtering og systemadministration i et Windows/Linux supportmiljø.
+En samling af praktiske **PowerShell**, **Bash** og **Docker Compose** scripts udviklet til automatiseret fejlsøgning, netværksdiagnostik, PC-klargøring, printerhåndtering og systemadministration i et Windows/Linux supportmiljø.
 
 ---
 
 ### 📂 Indhold
 
 #### 🔹 1. PowerShell (`/powershell`)
+* **`PC_Provisioning_Cleanup.ps1`**: Automatiseret PC-klargøring og oprydningsscript. Renser temp-filer, validerer Windows Update/BITS tjenester og automatiserer installation af standardsoftware via Microsoft Winget (7-Zip, Chrome, Adobe Reader).
 * **`Printer_Search_Tool.ps1`**: Søg efter lokale og netværksbaserede printere, tjek Print Spooler status (og automatisk genstart ved fejl), samt test af RAW printport (Port 9100).
 * **`Network_Diagnostic_Tool.ps1`**: Automatiseret netværksdiagnostik for Windows-endpoints (IP-konfiguration, DNS flush, ping-test til gateway/DNS, port-tjek samt fejlfindingsrapport).
 * **`User_Onboarding_Helper.ps1`**: Hjælpescript til tjek af brugerstatus, miljøvariabler og rettigheder.
@@ -20,6 +21,11 @@ En samling af praktiske **PowerShell**, **Bash** og **Docker Compose** scripts u
 ---
 
 ### 💻 Anvendelse
+
+#### Kør PC Klargøring og Oprydning (som Admin):
+```powershell
+.\powershell\PC_Provisioning_Cleanup.ps1
+```
 
 #### Søg efter printere eller IP-adresse:
 ```powershell
