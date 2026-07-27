@@ -1,12 +1,14 @@
 # 🛠 IT Support & Automation Scripts
 
-En samling af praktiske **PowerShell**, **Bash** og **Docker Compose** scripts udviklet til automatiseret fejlsøgning, netværksdiagnostik, PC-klargøring, printerhåndtering og systemadministration i et Windows/Linux supportmiljø.
+En samling af praktiske **PowerShell**, **Bash** og **Docker Compose** scripts udviklet til automatiseret fejlsøgning, netværksdiagnostik, DNS-fejlsøgning, PC-klargøring, printerhåndtering og systemadministration i et Windows/Linux supportmiljø.
 
 ---
 
 ### 📂 Indhold
 
 #### 🔹 1. PowerShell (`/powershell`)
+* **`DNS_Troubleshooter.ps1`**: Dedikeret DNS-fejlsøger tool ("It's always DNS!"). Test af DNS-serveres svartid, navneopløsning, automatiske DNS/NetBIOS flushes samt test af Port 53 mod DNS-server.
+* **`Domain_Entra_Health_Check.ps1`**: Tjek af Hybrid Entra ID (Azure AD) & Active Directory domæne-status, Single Sign-On (SSO) og Primary Refresh Tokens (PRT).
 * **`PC_Provisioning_Cleanup.ps1`**: Automatiseret PC-klargøring og oprydningsscript. Renser temp-filer, validerer Windows Update/BITS tjenester og automatiserer installation af standardsoftware via Microsoft Winget (7-Zip, Chrome, Adobe Reader).
 * **`Printer_Search_Tool.ps1`**: Søg efter lokale og netværksbaserede printere, tjek Print Spooler status (og automatisk genstart ved fejl), samt test af RAW printport (Port 9100).
 * **`Network_Diagnostic_Tool.ps1`**: Automatiseret netværksdiagnostik for Windows-endpoints (IP-konfiguration, DNS flush, ping-test til gateway/DNS, port-tjek samt fejlfindingsrapport).
@@ -21,6 +23,16 @@ En samling af praktiske **PowerShell**, **Bash** og **Docker Compose** scripts u
 ---
 
 ### 💻 Anvendelse
+
+#### Kør DNS-fejlsøgning:
+```powershell
+.\powershell\DNS_Troubleshooter.ps1
+```
+
+#### Tjek Domæne & Entra ID SSO-status:
+```powershell
+.\powershell\Domain_Entra_Health_Check.ps1
+```
 
 #### Kør PC Klargøring og Oprydning (som Admin):
 ```powershell
