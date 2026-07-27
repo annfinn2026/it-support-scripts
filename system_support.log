@@ -1,0 +1,6 @@
+2026-07-27 09:15:02 INFO System booted successfully
+2026-07-27 09:15:10 WARNING Disk usage above 80% on /dev/sda1
+2026-07-27 09:16:45 ERROR Failed to connect to Active Directory Domain Controller
+2026-07-27 09:17:12 CRITICAL Database connection timeout on port 5432
+2026-07-27 09:18:00 INFO User 'johannesen' logged in via SSH
+2026-07-27 09:20:05 ERROR Print Spooler service failed to respond
