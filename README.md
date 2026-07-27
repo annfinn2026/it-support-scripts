@@ -20,6 +20,7 @@ En samling af praktiske **PowerShell**, **Python**, **Bash** og **Docker Compose
 * **`User_Onboarding_Helper.ps1`**: Hjælpescript til tjek af brugerstatus, miljøvariabler og rettigheder.
 
 #### 🔹 3. Bash / Linux (`/bash`)
+* **`esphome_ha_backup.sh`**: Automatiseret backup-script til Home Automation & ESP32/ESP8266 node konfigurationer (ESPHome YAML, Home Assistant `automations.yaml`, `configuration.yaml`, `secrets.yaml`), m. komprimeret `.tar.gz` arkivering og automatisk rotation af forældede backups.
 * **`system_health_check.sh`**: Automatiseret sundhedstjek til Linux/Ubuntu servere (RAM, CPU-belastning, diskplads, ZFS pool-status samt aktive Docker-containers).
 
 #### 🔹 4. Docker & Infrastructure (`/docker`)
