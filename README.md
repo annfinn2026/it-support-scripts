@@ -26,6 +26,9 @@ En samling af praktiske **PowerShell**, **Python**, **Bash** og **Docker Compose
 #### 🔹 4. Docker & Infrastructure (`/docker`)
 * **`docker-compose.homelab.yml`**: Eksempel på opstilling af selvhostede tjenester i et hjemmelab (Samba/CIFS fildeling, WireGuard VPN og DNS-kryptering).
 
+#### 🛡️ 5. OPNsense & Netværk Infrastructure (`/opnsense`)
+* **`opnsense_ha_tailscale_doh_setup.md`**: Komplet teknisk guide til OPNsense DNS-kryptering (DoH / DoT), Tailscale Subnet Router (`192.168.1.0/24`) & Exit Node auto-start samt ESPHome Noise API Encryption.
+
 ---
 
 ### 💻 Anvendelse
