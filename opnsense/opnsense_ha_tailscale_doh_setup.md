@@ -102,3 +102,56 @@ tailscale up --advertise-routes=192.168.1.0/24 --advertise-exit-node
 * **Subnet Router (`192.168.1.0/24`)**: Få direkte adgang til alle interne enheder (`192.168.1.x`) fra mobil 5G uden at installere Tailscale på hver enkelt enhed.
 * **Exit Node**: Beskyt trafik på offentlige Wi-Fi netværk ved at route mobiltrafik igennem hjemmets OPNsense router.
 * **Ingen konflikter med Firma-VPN**: Da Tailscale kører på routeren, påvirkes arbejdslaptops med Cisco AnyConnect / GlobalProtect overhovedet ikke.
+
+---
+
+## 4. 💾 Borg Backup CLI & Integritetstjek
+
+### Repository Mål & Konfiguration
+* **Mål-URI**: `ssh://root@192.168.1.218/storage/backups/PC/t14/backup`
+* **Kryptering**: `repokey-blake2` (Gemt i GNOME Keyring / `BORG_PASSPHRASE`)
+* **Miljø**: Fedora Silverblue Toolbox Container (`sudo dnf install -y borgbackup`)
+
+### Manuel Backup Kommando
+```bash
+export BORG_REPO="ssh://root@192.168.1.218/storage/backups/PC/t14/backup"
+
+borg create \
+    --stats \
+    --progress \
+    --compression zstd \
+    --exclude-caches \
+    --exclude "$HOME/Downloads" \
+    --exclude "$HOME/hedgedoc-app/database" \
+    --exclude "$HOME/.cache" \
+    --exclude "$HOME/.local/share/Trash" \
+    --exclude "$HOME/.var/app" \
+    ::"t14-{now:%Y-%m-%d_%H:%M:%S}" \
+    "$HOME"
+```
+
+### Oprydning af Arkiver (Retention Policy)
+```bash
+borg prune \
+    --list \
+    --keep-daily=14 \
+    --keep-weekly=4 \
+    --keep-monthly=12 \
+    --keep-yearly=10 \
+    ssh://root@192.168.1.218/storage/backups/PC/t14/backup
+```
+
+### Integritetstjek (Integrity Check) & Låse-oprydning
+* **Hurtigt Integritetstjek** (Indeks & Arkivstruktur):
+  ```bash
+  borg check --progress ssh://root@192.168.1.218/storage/backups/PC/t14/backup
+  ```
+* **Dybdegående Data-Integritetstjek** (SHA-256 Bit-rot verifikation af alle datablokke):
+  ```bash
+  borg check --verify-data --progress ssh://root@192.168.1.218/storage/backups/PC/t14/backup
+  ```
+* **Fjern Forældet Lås (Break Lock)**:
+  ```bash
+  borg break-lock ssh://root@192.168.1.218/storage/backups/PC/t14/backup
+  ```
+
