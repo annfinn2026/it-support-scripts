@@ -12,6 +12,7 @@ En samling af praktiske **PowerShell**, **Python**, **Bash** og **Docker Compose
   - **Log-Parser & Fejleksport**: Skanner logfiler for kritiske fejl (`ERROR`, `WARNING`, `CRITICAL`), samler statistik og udskriver linjerapporter.
 
 #### 🔹 2. PowerShell (`/powershell`)
+* **`Search-AVAndMedia.ps1`**: AV Hardware, Software & Mediefil Søge-Script. Finder tilsluttede audio/video-enheder (lydkort, mikrofoner, webcams), tjekker aktive streaming/AV-processer (OBS, Teams, Zoom, Premiere) og genererer CSV-rapporter over mediefiler.
 * **`DNS_Troubleshooter.ps1`**: Dedikeret DNS-fejlsøger tool ("It's always DNS!"). Test af DNS-serveres svartid, navneopløsning, automatiske DNS/NetBIOS flushes samt test af Port 53 mod DNS-server.
 * **`Domain_Entra_Health_Check.ps1`**: Tjek af Hybrid Entra ID (Azure AD) & Active Directory domæne-status, Single Sign-On (SSO) og Primary Refresh Tokens (PRT).
 * **`PC_Provisioning_Cleanup.ps1`**: Automatiseret PC-klargøring og oprydningsscript. Renser temp-filer, validerer Windows Update/BITS tjenester og automatiserer installation af standardsoftware via Microsoft Winget (7-Zip, Chrome, Adobe Reader).
