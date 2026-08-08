@@ -57,4 +57,4 @@ chmod +x ./bash/system_health_check.sh
 
 ---
 
-*Udviklet af Hans Annfinn Johannesen (2026)*
+*Udviklet af Hans A. Johannesen (2026)*
